@@ -7,7 +7,7 @@ void setup() {
   pinMode(PIN_LED, OUTPUT);
   digitalWrite(PIN_LED, LOW);
 
-  pinMode(PIN_BUTTON, INPUT_PULLUP); // aktif-LOW
+  pinMode(PIN_BUTTON, INPUT_PULLUP); // if press the button, it gonna send LOW signal.
   Serial.begin(115200);
   delay(50);
   Serial.println(F("If you press long, blink rate changes. Short press keeps LED on (then resume blink)."));
@@ -27,7 +27,7 @@ void loop() {
   static bool longHandled = false;
 
   bool pressed = (digitalRead(PIN_BUTTON) == LOW);
-  // first press
+  // first press + short press
   if (pressed && !lastPress) {
     pressStart  = now;
     longHandled = false;
@@ -67,3 +67,4 @@ void loop() {
   }
   lastPress = pressed;
 }
+
