@@ -1,5 +1,6 @@
-## Button-Driven-Non-Blocking-Blink-Wokwi
-# EN
+# Button-Driven-Non-Blocking-Blink-Wokwi
+
+## EN
 I made a non-blocking blink using millis() without delay(). I wanted to practice before starting to RTOS. Since delay locks up the CPU and multiple tasks cannot be performed simultaneously, I prepared it using millis().
 
 A pushbutton on D2 is defined as INPUT_PULLUP and short press is toggle the on-board led, long press is change blink rate (cycles between 150ms and 1000ms).
