@@ -6,11 +6,17 @@ A pushbutton on D2 is defined as INPUT_PULLUP and short press is toggle the on-b
 
 Features:
 ----------> millis() based cooperative timing
+
 ----------> button press/release detection
+
 ----------> one-shot long-press handling
+
 ----------> serial logs
+
 ----------> Short press toggles D13 + prints a log
+
 ----------> Hold the button more than 3 second (long press) changes the blink period (150-350-550-..-1000)
+
 
 
 
@@ -21,6 +27,9 @@ Buton D2'ye bağlı durumda ve INPUT_PULLUP olarak tanımladım. RTOS'a başlama
 
 Özellikler:
 ----------> millis tabanlı bir zamanlama sistemi kullandım
+
 ----------> butonda basılı tutma ve bırakma algılama işlevini ekledim
+
 ----------> Seri loglar ile kısa süre basma/uzun süre basma ve led yandı - blink hızı değişti tarzında geri dönüş haberi veriliyor
+
 ----------> Butona 3 saniyeden fazla basıldığında herhangi bir etki olmuyor, uzun basma tek sefer tetikleniyor.
