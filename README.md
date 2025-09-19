@@ -20,9 +20,7 @@ Features:
 ----------> Hold the button more than 3 second (long press) changes the blink period (150-350-550-..-1000)
 
 
-
-
-##TR
+## TR
 
 Delay kullanmadan millis ile bir blink led çalışması yaptım. Delay'in CPU'yu kilitlediğinin farkındayım ve bu esnada birden fazla görev gerçekleştirilemiyor. Bu sebeple RTOS öğrenmeye başlamadan önce delay yerine millis kullandım.
 
