@@ -5,6 +5,7 @@ I made a non-blocking blink using millis() without delay(). I wanted to practice
 A pushbutton on D2 is defined as INPUT_PULLUP and short press is toggle the on-board led, long press is change blink rate (cycles between 150ms and 1000ms).
 
 Features:
+
 ----------> millis() based cooperative timing
 
 ----------> button press/release detection
@@ -21,11 +22,13 @@ Features:
 
 
 ##TR
+
 Delay kullanmadan millis ile bir blink led çalışması yaptım. Delay'in CPU'yu kilitlediğinin farkındayım ve bu esnada birden fazla görev gerçekleştirilemiyor. Bu sebeple RTOS öğrenmeye başlamadan önce delay yerine millis kullandım.
 
 Buton D2'ye bağlı durumda ve INPUT_PULLUP olarak tanımladım. RTOS'a başlamadan önce yapıyı tam olarak anlayabilmem için iskelet olarak tasarladım ve zamanla bu sistemi geliştirerek RTOS öğrenmeyi hedefliyorum.
 
 Özellikler:
+
 ----------> millis tabanlı bir zamanlama sistemi kullandım
 
 ----------> butonda basılı tutma ve bırakma algılama işlevini ekledim
