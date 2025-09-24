@@ -1,13 +1,19 @@
-#include <Arduino.h>
+#include <arduino.h>
 
 const int PIN_LED    = LED_BUILTIN;
 const int PIN_BUTTON = 2;
+const int PIN_PWM_LED = 9;
+const int PIN_POT = A0;
+
 
 void setup() {
   pinMode(PIN_LED, OUTPUT);
   digitalWrite(PIN_LED, LOW);
 
-  pinMode(PIN_BUTTON, INPUT_PULLUP); // if press the button, it gonna send LOW signal.
+  pinMode(PIN_BUTTON, INPUT_PULLUP); // aktif-LOW
+  pinMode(PIN_PWM_LED, OUTPUT);
+  analogWrite(PIN_PWM_LED, 0);
+
   Serial.begin(115200);
   delay(50);
   Serial.println(F("If you press long, blink rate changes. Short press keeps LED on (then resume blink)."));
@@ -27,7 +33,7 @@ void loop() {
   static bool longHandled = false;
 
   bool pressed = (digitalRead(PIN_BUTTON) == LOW);
-  // first press + short press
+  // first press
   if (pressed && !lastPress) {
     pressStart  = now;
     longHandled = false;
@@ -66,5 +72,14 @@ void loop() {
     digitalWrite(PIN_LED, ledState ? HIGH : LOW);
   }
   lastPress = pressed;
-}
 
+  // pot -> pwm task
+  static unsigned long timePWM = 0;
+
+  if(now-timePWM >= 200) {
+    timePWM = now;
+    int rawP = analogRead(PIN_POT);
+    int pwm = map(rawP, 0, 1023, 0, 255);
+    analogWrite(PIN_PWM_LED, pwm);
+  }
+}
